@@ -1,0 +1,71 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  font: 1em/1.4em Helvetica, Arial;
+  padding: 1em;
+}
+
+header {
+  overflow: hidden;
+}
+header h1 {
+  line-height: 50px;
+}
+header img {
+  float: left;
+  margin-right: 1em;
+}
+
+object {
+  display: none;
+}
+
+.buddies {
+  margin: 1em 0 2em;
+}
+.buddies ul {
+  overflow: hidden;
+  padding: 0;
+}
+.buddies li {
+  list-style: none;
+  float: left;
+  line-height: 50px;
+  padding: .5em;
+  margin-right: 1em;
+}
+.buddies li img {
+  border-radius: 25px;
+  width: 50px;
+  height: 50px;
+  float: left;
+  margin-right: .5em;
+}
+
+
+.tasks table {
+  width: 100%;
+}
+.tasks .isNewWeek > * {
+  border-top: 2px solid #222;
+}
+
+.tasks th,
+.tasks td {
+  vertical-align: top;
+  padding: .25em 0;
+  text-align: left;
+}
+.tasks th {
+  padding-right: 1em;
+  white-space: nowrap;
+}
+
+.tasks img {
+  width: 1em;
+  height: 1em;
+  border-radius: .5em;
+  margin-right: .2em;
+}

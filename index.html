@@ -1,0 +1,56 @@
+<html>
+<head>
+  <title>&amp; The Hoodie Firm Dashboard</title>
+
+  <link rel="stylesheet" type="text/css" href="assets/app.css">
+</head>
+<body>
+
+
+
+  <script id="header" type="text/html">
+    <header>
+      <img src="{{ thumbUrl }}">
+      <h1>&amp; {{ name }} Dashboard</h1>
+    </header>
+  </script>
+
+
+  <script id="buddies" type="text/html">
+    <div class="buddies">
+      <ul>
+        {{#buddies}}
+        <li>
+          <img src="{{ smallPicUrl }}">
+          {{ firstName }}
+        </li>
+        {{/buddies}}
+      </ul>
+    </div>
+  </script>
+
+  <script id="shippedTasks" type="text/html">
+    <div class="tasks">
+      <table>
+        {{#tasks}}
+        <tr class="{{#isNewWeek}}isNewWeek{{/isNewWeek}}">
+          <th>
+            {{ shippedAt }}
+          </th>
+          <td>
+            <img src="{{ buddy.smallPicUrl }}">
+            {{ title }}
+          </td>
+        </tr>
+        {{/tasks}}
+      </table>
+    </div>
+  </script>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+  <script src="assets/socket.io-client.js"></script>
+  <script src="assets/andbang.js"></script>
+  <script src="assets/ICanHaz.min.js"></script>
+  <script src="assets/app.js"></script>
+</body>
+</html>
