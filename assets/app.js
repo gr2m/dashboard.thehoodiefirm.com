@@ -4,6 +4,14 @@
   // if oauth redirect, store token
   if (/access_token=/.test(location.hash)) {
     state = location.hash.match(/state=([^&]+)/).pop()
+    stateCheck = localStorage.getItem('state')
+
+    if (!state || state !== stateCheck) {
+      alert('OAUTH request failed. Try again');
+      localStorage.removeItem('state')
+      return;
+    }
+
     token = location.hash.match(/access_token=([^&]+)/).pop()
     localStorage.setItem('token', token)
     location.hash = ''
@@ -17,7 +25,11 @@
     state = 'secret';
     localStorage.setItem('state', state)
 
-    params = { response_type: 'token', state: state, client_id: '3429b27fb268dfa78ea19d8c366858715c6e347c'}
+    params = {
+      response_type: 'token',
+      state: state,
+      redirect_uri: 'http://localhost:' + (location.port || 80)
+    }
 
     // if (/localhost/.test(location.href)) {
     //   params.redirect_uri = 'http://' + location.host + '/'
@@ -68,7 +80,7 @@
               });
 
               tasks.forEach( function(task) {
-                task.buddy = buddiesMap[task.authorId]
+                task.buddy = buddiesMap[task.assignee]
 
                 var date = (new Date(parseInt(task.shippedAt)))
                 var weekNo = getWeekNumber(date);
