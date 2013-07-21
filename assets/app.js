@@ -3,8 +3,8 @@
 
   // if oauth redirect, store token
   if (/access_token=/.test(location.hash)) {
-    state = hash.match(/state=([^&]+)/).pop()
-    token = hash.match(/access_token=([^&]+)/).pop()
+    state = location.hash.match(/state=([^&]+)/).pop()
+    token = location.hash.match(/access_token=([^&]+)/).pop()
     localStorage.setItem('token', token)
     location.hash = ''
   } else {
