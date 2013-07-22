@@ -28,7 +28,8 @@
     params = {
       response_type: 'token',
       state: state,
-      redirect_uri: 'http://localhost:' + (location.port || 80)
+      client_id: '3429b27fb268dfa78ea19d8c366858715c6e347c'
+      // redirect_uri: 'http://localhost:' + (location.port || 80)
     }
 
     // if (/localhost/.test(location.href)) {
